@@ -41,14 +41,17 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Set Docker image tag
+      id: vars
+      run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV    
+
     - name: Build and tag Docker image
       run: |
         IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/react-docker-ci
         TAG=latest
-        docker build -t $IMAGE_NAME:$TAG .
+        docker build -t $IMAGE_NAME:${{ env.TAG }} .
 
     - name: Push Docker image
       run: |
         IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/react-docker-ci
-        TAG=latest
-        docker push $IMAGE_NAME:$TAG
+        docker push $IMAGE_NAME:${{ env.TAG }}
