@@ -32,13 +32,13 @@ Die Pipeline wird bei jedem Push auf den `main`-Branch ausgeführt und durchläu
 ## Pipeline Beweise
 
 ### GitHub Actions CI Pipeline
-![Erfolgreicher GitHub Actions Lauf](./screenshots/github-actions.png)
+![Erfolgreicher GitHub Actions Lauf](./frontend/screenshots/github-actions.png)
 
 ### Docker Hub Repository
-![Docker Image in Docker Hub](./screenshots/docker-hub-image.png)
+![Docker Image in Docker Hub](./frontend/screenshots/docker-hub-image.png)
 
 ### GitHub Secrets Konfiguration
-![GitHub Secrets (Werte verborgen)](./screenshots/docker-hub-secrets-token.png)
+![GitHub Secrets (Werte verborgen)](./frontend/screenshots/docker-hub-secrets-token.png)
 
 ## Lokale Entwicklung
 
