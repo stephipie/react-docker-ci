@@ -48,8 +48,14 @@ jobs:
     - name: Build and tag Docker image
       run: |
         IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/react-docker-ci
-        TAG=latest
         docker build -t $IMAGE_NAME:${{ env.TAG }} .
+        
+    - name: Tag also as latest if main
+      if: github.ref_name == 'main'
+      run: |
+        IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/react-docker-ci
+        docker tag $IMAGE_NAME:${{ env.TAG }} $IMAGE_NAME:latest
+        docker push $IMAGE_NAME:latest
 
     - name: Push Docker image
       run: |
