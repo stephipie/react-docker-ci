@@ -21,15 +21,12 @@ jobs:
         node-version: '22'
         
     - name: Install dependencies
-      working-directory: ./frontend
       run: npm ci
       
     - name: Run linter
-      working-directory: ./frontend
       run: npm run lint
       
     - name: Build the application
-      working-directory: ./frontend
       run: npm run build  
 
     - name: Set up Docker Buildx
